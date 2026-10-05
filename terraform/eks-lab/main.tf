@@ -38,7 +38,7 @@ resource "aws_iam_role" "github_actions" {
       Condition = {
         StringEquals = {
           "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
-          "token.actions.githubusercontent.com:sub" = "repo:therafahub/juice-shop-ga:ref:refs/heads/feat/eks-lab"
+          "token.actions.githubusercontent.com:sub" = "repo:therafahub@21267658/juice-shop-ga@1404730717:ref:refs/heads/feat/eks-lab"
         }
       }
     }]
