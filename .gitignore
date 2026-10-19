@@ -71,3 +71,8 @@ config/*.yml
 # Misc
 .playwright-mcp/
 cypress/screenshots/
+
+**/.terraform/
+**/terraform.tfstate
+**/terraform.tfstate.*
+**/tfplan*
