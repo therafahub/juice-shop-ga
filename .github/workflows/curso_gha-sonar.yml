@@ -27,6 +27,6 @@ jobs:
         with:
           args: >
             -Dsonar.organization=therafahub
-            -Dsonar.projectKey=juice-shop-ga
+            -Dsonar.projectKey=therafahub_juice-shop-ga
             -Dsonar.sources=.
             -Dsonar.exclusions=**/node_modules/**,**/coverage/**,**/dist/**,**/build/**
