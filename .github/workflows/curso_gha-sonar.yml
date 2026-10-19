@@ -1,0 +1,32 @@
+name: SonarQube Cloud
+
+on:
+    push:
+    pull_request:
+    workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  analize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+            fetch-depth: 0
+
+      - name: Analyze
+        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.fork == false
+        uses: SonarSource/sonarqube-scan-action@v5
+        env:
+            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+            SONAR_HOST_URL: https://sonarcloud.io
+        with:
+          args: >
+            -Dsonar.organization=therafahub
+            -Dsonar.projectKey=juice-shop-ga
+            -Dsonar.sources=.
+            -Dsonar.exclusions=**/node_modules/**,**/coverage/**,**/dist/**,**/build/**
